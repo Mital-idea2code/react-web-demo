@@ -42,6 +42,7 @@ export const deleteService = (id) => {
 };
 
 export const multipleService = (data) => {
+  console.log(data);
   return axios.post(`${mainUrl}/service/multipleService`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
@@ -55,6 +56,12 @@ export const allSettings = () => {
 
 export const updateSetting = (data, id) => {
   return axios.put(`${mainUrl}/setting/updateSetting/${id}`, data, {
+    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+  });
+};
+
+export const updateConatctSetting = (data, id) => {
+  return axios.put(`${mainUrl}/setting/updateConatctSetting/${id}`, data, {
     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
   });
 };

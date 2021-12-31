@@ -21,6 +21,7 @@ import Sidebar from "../Sidebar";
 // pages
 import Dashboard from "../../pages/dashboard";
 import Services from "../../pages/services/Services";
+import Teams from "../../pages/teams/Teams";
 import ServiceForm from "../../pages/services/ServiceForm";
 import Typography from "../../pages/typography";
 import Notifications from "../../pages/notifications";
@@ -29,6 +30,7 @@ import Tables from "../../pages/tables";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
 import Setting from "../../pages/setting/setting";
+import Slider from "../../pages/slider/slider";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -55,6 +57,8 @@ function Layout(props) {
             <Route path="/app/services" exact component={Services} />
             <Route path="/app/services/manage" exact component={ServiceForm} />
             <Route path="/app/setting" exact component={Setting} />
+            <Route path="/app/team" exact component={Teams} />
+            {/* <Route path="/app/slider" exact component={Slider} /> */}
             {/* <Route path="/app/typography" component={Typography} />
             <Route path="/app/tables" component={Tables} />
             <Route path="/app/notifications" component={Notifications} />

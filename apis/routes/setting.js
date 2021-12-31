@@ -30,7 +30,6 @@ router.put("/updateSetting/:id", verifyToken, async (req, res) => {
 });
 
 // get all settings
-
 router.get("/allSettings", verifyToken, async (req, res) => {
   try {
     const settings = await Setting.find();
@@ -45,4 +44,33 @@ router.get("/allSettings", verifyToken, async (req, res) => {
     }
   }
 });
+
+//updtae about us
+router.put("/updateConatctSetting/:id", verifyToken, async (req, res) => {
+  try {
+    const Settings = await Setting.updateOne(
+      { _id: req.params.id },
+      {
+        $set: {
+          address: req.body.address,
+          facebook: req.body.facebook,
+          twitter: req.body.twitter,
+          linkedin: req.body.linkedin,
+          instagram: req.body.instagram,
+          googleplus: req.body.googleplus,
+        },
+      }
+    );
+    res.json(Settings);
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      let errors = {};
+      Object.keys(error.errors).forEach((key) => {
+        errors[key] = error.errors[key].message;
+      });
+      res.status(400).json({ error: errors });
+    }
+  }
+});
+
 module.exports = router;

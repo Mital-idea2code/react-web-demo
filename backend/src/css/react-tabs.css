@@ -60,3 +60,9 @@
   padding: 2px;
   min-height: 400px;
 }
+.editBtn {
+  color: #0a66b7;
+}
+.deleteBtn {
+  color: #ff0000b3;
+}

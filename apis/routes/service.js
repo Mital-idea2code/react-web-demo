@@ -84,4 +84,18 @@ router.post("/multipleService", verifyToken, async (req, res) => {
   }
 });
 
+router.get("/topServices", verifyToken, async (req, res) => {
+  try {
+    const settings = await Service.find().sort({ x: 1 }).limit(4);
+    res.json(settings);
+  } catch (err) {
+    if (err.name === "ValidationError") {
+      let errors = {};
+      Object.keys(err.errors).forEach((key) => {
+        errors[key] = err.errors[key].message;
+      });
+      res.status(400).json({ err: errors });
+    }
+  }
+});
 module.exports = router;

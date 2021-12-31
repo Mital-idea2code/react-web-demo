@@ -51,6 +51,7 @@ export default function Services(props) {
           return (
             <div>
               <Icons.Edit
+                className="editBtn"
                 onClick={() => {
                   const editData = datatabledata.find(
                     (data) => data._id === value,
@@ -62,6 +63,7 @@ export default function Services(props) {
                 }}
               />
               <Icons.Delete
+                className="deleteBtn"
                 onClick={async () => {
                   const confirm = await swal({
                     title: "Are you sure?",
@@ -101,7 +103,7 @@ export default function Services(props) {
             (data, index2) => index2 === index1.dataIndex && data._id,
           )._id,
       );
-
+      console.log(ids);
       const confirm = await swal({
         title: "Are you sure?",
         text: "Are you sure that you want to delete this file?",
